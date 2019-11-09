@@ -1,0 +1,25 @@
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-typescript"
+    ],
+    "plugins": [
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        ["@babel/plugin-proposal-class-properties", { "loose": true }],
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-transform-runtime",
+        ["babel-plugin-inferno", { "imports": true }]
+    ],
+    "comments": false,
+    "env": {
+        "test": {
+            "presets": [
+                "@babel/preset-env",
+                "@babel/preset-typescript"
+            ],
+            "plugins": [
+                "istanbul"
+            ]
+        }
+    }
+}

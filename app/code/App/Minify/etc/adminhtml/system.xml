@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="app" translate="label" sortOrder="1">
+            <label>App Extenstions</label>
+        </tab>
+        <section id="app_minify" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Minify HTML CSS JS</label>
+            <tab>app</tab>
+            <resource>App_Minify::config_system</resource>
+            <group id="general" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <comment><![CDATA[<p>1. <strong>STORES > Configuration > ADVANCED > Developer > CSS Settings</strong><br />2. <strong>STORES > Configuration > ADVANCED > Developer > JavaScript Settings</strong><br />3. <strong>SYSTEM > Cache Management</strong></p>]]></comment>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <comment>Enables or disables extension.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="max_minification" translate="label comment tooltip" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Maximum Minification</label>
+                    <comment><![CDATA[Enables or disables Maximum HTML Minification.<br />Slower and unsafe. See tooltip for more information.]]></comment>
+                    <tooltip>If you enable this option all multiple spaces will be eliminated and replaced with one space. All new line characters will be substituted with one space character. Your entire code will be on one line. This is not recommended, you should keep this option disabled.</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="compatibility" translate="label comment" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Cache Compatibility Mode</label>
+                    <comment><![CDATA[Enables or disables Cache Compatibility Mode.<br />You should enable this if you use third party FPC or Varnish cache extensions.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="remove_comments" translate="label comment tooltip" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Remove Important Comments</label>
+                    <comment>See tooltip for more information.</comment>
+                    <tooltip>If you enable this option important comments will be removed. Sometimes important comments hold copyright information and removing them is considered copyright infringement violation. If you are sure your CSS and JS code does not have important comments with copyright information you can enable this option.</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> 
+            </group>
+        </section>
+    </system>
+</config>

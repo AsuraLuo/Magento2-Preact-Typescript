@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="require.js" remove="true" />
+        <referenceBlock name="formkey" remove="true"/>
+        <referenceBlock name="js_cookies" remove="true" />
+        <referenceBlock name="translate" remove="true" />
+        <referenceBlock name="pageCache" remove="true" />
+        <referenceBlock name="require-cookie" remove="true" />
+        <referenceBlock name="skip_to_content" remove="true" />
+        <referenceBlock name="theme.active.editor" remove="true" />
+        <referenceBlock name="frontend-storage-manager" remove="true" />
+        <referenceBlock name="global_notices" remove="true" />
+        <referenceBlock name="report.bugs" remove="true" />
+        <referenceBlock name="navigation.sections" remove="true" />
+        <referenceBlock name="customer.section.config" remove="true" />
+        <referenceBlock name="customer.customer.data" remove="true" />
+        <referenceBlock name="customer.data.invalidation.rules" remove="true" />
+        <referenceBlock name="authentication-popup" remove="true" />
+        <referenceBlock name="sales.order.print.js" remove="true" />
+        <referenceBlock name="sale.reorder.sidebar" remove="true" />
+    </body>
+</page>
