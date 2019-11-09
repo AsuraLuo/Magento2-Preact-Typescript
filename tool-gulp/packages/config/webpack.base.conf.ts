@@ -40,20 +40,6 @@ export class WebpackConfig {
                             })
                         })
                     }
-
-                    if (options.extract) {
-                        return [
-                            MiniCssExtractPlugin,
-                            {
-                                loader: 'react-style-loader',
-                                options: {
-                                    minimize: process.env.NODE_ENV === 'production'
-                                }
-                            }
-                        ]
-                    } else {
-                        return ['react-style-loader'].concat(<any[]>loaders)
-                    }
                 }
 
                 return {
