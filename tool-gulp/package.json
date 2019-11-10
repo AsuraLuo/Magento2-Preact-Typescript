@@ -100,6 +100,7 @@
         "inferno": "^7.3.2",
         "inferno-compat": "^7.3.2",
         "inferno-devtools": "^7.3.2",
+        "inferno-dom": "^1.0.7",
         "less-loader": "^5.0.0",
         "lodash-webpack-plugin": "^0.11.5",
         "make-dir": "^3.0.0",

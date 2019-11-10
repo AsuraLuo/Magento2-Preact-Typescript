@@ -10,7 +10,7 @@ const { area, src, mode } = themeConfig.default
 const baseConfig = new WebpackConfig({
     root:  path.join(__dirname, '../app'),
     entry: {
-        vendor: ['apollo-client', 'apollo-link', 'apollo-link-http', 'apollo-cache-inmemory', 'graphql-tag']
+        vendor: ['inferno', 'inferno-devtools', 'inferno-compat']
     },
     output: {
         path: path.join(__dirname, `../../app/design/${area}/${src}/web/dll`),
