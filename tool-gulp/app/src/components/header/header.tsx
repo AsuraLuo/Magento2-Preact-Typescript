@@ -1,4 +1,5 @@
 import { Component } from 'inferno'
+import { Logo } from './module/logo'
 
 export class Header extends Component<any, any> {
     static displayName: string = `Header`
@@ -10,7 +11,12 @@ export class Header extends Component<any, any> {
     render () {
         return (
             <header className="header">
-                Inferno Header
+                <div className="panel">
+
+                </div>
+                <div className="content">
+                    <Logo />
+                </div>
             </header>
         )
     }

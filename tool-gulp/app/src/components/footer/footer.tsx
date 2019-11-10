@@ -1,4 +1,5 @@
 import { Component } from 'inferno'
+import { Copyright } from './module/copyright'
 
 export class Footer extends Component<any, any> {
     static displayName: string = `Footer`
@@ -10,7 +11,7 @@ export class Footer extends Component<any, any> {
     render () {
         return (
             <footer className="footer">
-                Inferno Footer
+                <Copyright />
             </footer>
         )
     }
