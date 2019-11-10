@@ -10,7 +10,7 @@ const { area, src, mode } = themeConfig.default
 const baseConfig = new WebpackConfig({
     root:  path.join(__dirname, '../app'),
     entry: {
-        vendor: ['inferno', 'inferno-devtools', 'inferno-compat']
+        vendor: ['inferno', 'redux', 'redux-thunk', 'redux-logger', 'inferno-redux', 'inferno-devtools', 'inferno-compat']
     },
     output: {
         path: path.join(__dirname, `../../app/design/${area}/${src}/web/dll`),

@@ -1,24 +1,17 @@
-import { Component, render, version } from 'inferno'
+import { render } from 'inferno'
+import { Store } from 'redux'
+import { Provider } from 'inferno-redux'
+import { initDevTools } from 'inferno-devtools'
+import configureStore from './cms/store'
+import { App } from './container/cms_index'
 
-class App extends Component<any, any> {
-    private readonly tsxVersion: number
+const store: Store = configureStore()
 
-    constructor(props: any, context: any) {
-		super(props, context);
-
-		this.tsxVersion = 3.21
-    }
-    
-    public render() {
-		return (
-			<div>
-				<h1>{`Welcome to Inferno ${version} TSX ${this.tsxVersion}`}</h1>
-			</div>
-		)
-	}
-}
+initDevTools()
 
 render(
-    <App />, 
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById('app') as HTMLElement    
 )
