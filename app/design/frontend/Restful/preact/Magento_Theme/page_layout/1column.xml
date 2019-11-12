@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="empty" />
+    <referenceContainer name="after.body.start">
+        <container name="app.data" label="App Data">
+            <block class="App\Component\Block\Common" name="app.common.data" template="Magento_Theme::data.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="app.react.noscript" after="-" template="Magento_Theme::noscript.phtml" />
+        </container>
+    </referenceContainer>
+    <referenceContainer name="app.page.wrapper">
+        <block class="Magento\Framework\View\Element\Template" name="app.bootstrap" template="Magento_Theme::app.phtml" />
+    </referenceContainer>
+    <referenceContainer name="before.body.end">
+        <container name="app.modules" label="App Modules">
+            <block class="Magento\Framework\View\Element\Template" name="app.vender.dll" template="Magento_Theme::vender.phtml" />
+        </container>
+    </referenceContainer>
+</layout>

@@ -1,4 +1,4 @@
-import { VNode, Component } from 'inferno'
+import { VNode, Component } from 'preact'
 
 declare global {
     namespace JSX {

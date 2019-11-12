@@ -10,7 +10,7 @@ const { area, src, mode } = themeConfig.default
 const baseConfig = new WebpackConfig({
     root:  path.join(__dirname, '../app'),
     entry: {
-        vendor: []
+        vendor: ['preact', 'redux', 'redux-thunk', 'redux-logger', 'preact-redux', 'preact-compat']
     },
     output: {
         path: path.join(__dirname, `../../app/design/${area}/${src}/web/dll`),

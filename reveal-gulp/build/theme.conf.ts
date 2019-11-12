@@ -8,7 +8,7 @@ const themeConfig: ThemeConfig = {
         locale: 'en_US',
         parent: '',
         mode: 'production',
-        styles: 'less',
+        styles: 'scss',
         scripts: 'tsx',
         files: [
             'css/app.css'
