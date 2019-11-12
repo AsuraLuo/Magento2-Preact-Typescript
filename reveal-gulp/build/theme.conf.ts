@@ -7,7 +7,7 @@ const themeConfig: ThemeConfig = {
         src: 'Restful/preact',
         locale: 'en_US',
         parent: '',
-        mode: 'production',
+        mode: 'development',
         styles: 'scss',
         scripts: 'tsx',
         files: [

@@ -14,7 +14,7 @@ export class App extends Component<any, any> {
     render () {
 		return (
 			<div>
-				<h1>{`Welcome to Preact`}</h1>
+				<h1>{`Welcome to Preact Theme`}</h1>
 			</div>
 		)
 	}

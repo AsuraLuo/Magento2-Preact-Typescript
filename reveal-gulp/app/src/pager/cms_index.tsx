@@ -1,3 +1,4 @@
+import 'preact/debug'
 import { h, render } from 'preact'
 import { Store } from 'redux'
 import { Provider } from 'preact-redux'
