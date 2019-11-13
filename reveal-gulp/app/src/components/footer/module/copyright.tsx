@@ -1,4 +1,4 @@
-import { Component } from 'inferno'
+import { h, Component } from 'preact'
 
 export class Copyright extends Component<any, any> {
     static displayName: string = `Copyright`

@@ -1,4 +1,6 @@
-import { h, Component } from 'preact'
+import { h, Component, Fragment } from 'preact'
+import { Header } from '@components/header/header'
+import { Footer } from '@components/footer/footer'
 
 export class App extends Component<any, any> {
 	static displayName: string = 'App'
@@ -13,9 +15,11 @@ export class App extends Component<any, any> {
     
     render () {
 		return (
-			<div>
+			<Fragment>
+				<Header />
 				<h1>{`Welcome to Preact Theme`}</h1>
-			</div>
+				<Footer />
+			</Fragment>
 		)
 	}
 }

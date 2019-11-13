@@ -1,4 +1,4 @@
-import { Component } from 'inferno'
+import { h, Component } from 'preact'
 import { Logo } from './module/logo'
 
 export class Header extends Component<any, any> {

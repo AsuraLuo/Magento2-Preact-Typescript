@@ -1,4 +1,4 @@
-import { Component } from 'inferno'
+import { h, Component } from 'preact'
 import { Copyright } from './module/copyright'
 
 export class Footer extends Component<any, any> {
