@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { Logo } from './module/logo'
+import Logo from './module/logo'
 
 export class Header extends Component<any, any> {
     static displayName: string = `Header`
@@ -9,13 +9,15 @@ export class Header extends Component<any, any> {
     }
 
     render () {
+        const { logo } = window.commonJson
+
         return (
             <header className="header">
                 <div className="panel">
 
                 </div>
                 <div className="content">
-                    <Logo />
+                    <Logo logo={logo} />
                 </div>
             </header>
         )
