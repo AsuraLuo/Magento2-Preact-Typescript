@@ -17,7 +17,7 @@ export class Header extends Component<any, any> {
 
                 </div>
                 <div className="content">
-                    <Logo logo={logo} />
+                    <Logo {...logo} />
                 </div>
             </header>
         )

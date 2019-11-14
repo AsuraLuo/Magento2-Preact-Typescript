@@ -1,18 +1,19 @@
-import { h, Component } from 'preact'
+import { h, FunctionComponent } from 'preact'
 
-export class Copyright extends Component<any, any> {
-    static displayName: string = `Copyright`
-
-    constructor (props: any) {
-        super(props)
-    }
-
-    render () {
-        const { copyright } = window.commonJson
-        return (
-            <div className="copyright">
-                <p>{copyright}</p>
-            </div>
-        )
-    }
+interface CopyrightProps {
+    copyright: string
 }
+
+const Copyright: FunctionComponent<CopyrightProps> = (props: CopyrightProps) => {
+    const { copyright } = props
+
+    return (
+        <div className="copyright">
+            <p>{copyright}</p>
+        </div>
+    )
+}
+
+Copyright.displayName = `Copyright`
+
+export default Copyright
