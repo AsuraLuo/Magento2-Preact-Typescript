@@ -15,10 +15,6 @@ class Common extends \Magento\Framework\View\Element\Template
     protected $urlEncoder;
     protected $customerSession;
     protected $categoryCollectionFactory;
-    protected $terms;
-    protected $minPopularity;
-    protected $maxPopularity;
-    protected $queryCollectionFactory;
     private $localeFormat;
 
     public function __construct(
@@ -29,7 +25,6 @@ class Common extends \Magento\Framework\View\Element\Template
         \Magento\Framework\Json\Helper\Data $JsonHelper,
         \Magento\Framework\Data\Form\FormKey $formKey,
         \Magento\Framework\Url\EncoderInterface $urlEncoder,
-        \Magento\Search\Model\ResourceModel\Query\CollectionFactory $queryCollectionFactory,
         Format $localeFormat = null
     )
     {
@@ -41,7 +36,6 @@ class Common extends \Magento\Framework\View\Element\Template
         $this->jsonHelper = $JsonHelper;
         $this->customerSession = $customerSession;
         $this->checkoutsesion = $checkoutsesion;
-        $this->queryCollectionFactory = $queryCollectionFactory;
         $this->storeManager = $context->getStoreManager();
         $this->localeFormat = $localeFormat ?: $this->getObject(Format::class);
     }
@@ -197,10 +191,6 @@ class Common extends \Magento\Framework\View\Element\Template
             'secure' =>  false,
             'lifetime' =>  $cookieHelper->getLifetime() 
         ];
-        
-        $pageCacheHelper = $this->createObject('Magento\PageCache\Block\Javascript');
-        $pageCache = $pageCacheHelper->getScriptOptions();
-        $data['pageCache'] = $this->jsonHelper->jsonDecode($pageCache);
 
         $translateHelper = $this->createObject('Magento\Translation\Block\Js');
         $data['translate'] = [
@@ -253,52 +243,8 @@ class Common extends \Magento\Framework\View\Element\Template
         $title = $pageTitle->getPageHeading();
         $data['title'] = $title;
 
-        $minicartHelper = $this->createObject('Magento\Checkout\Block\Cart\Sidebar');
-        $minicart = $minicartHelper->getConfig();
-        $data['minicart'] = $minicart;
-
         $categories = $this->getStoresSubCategories();
         $data['categories'] = $categories;
-
-        $searchTerm = $this->createObject('Magento\Search\Block\Term');
-        if (empty($this->terms)) {
-            $this->terms = [];
-            $terms = $this->queryCollectionFactory->create()->setPopularQueryFilter(
-                $this->storeManager->getStore()->getId()
-            )->setPageSize(
-                6
-            )->load()->getItems();
-            if (count($terms) > 0) {
-                $this->maxPopularity = reset($terms)->getPopularity();
-                $this->minPopularity = end($terms)->getPopularity();
-                $range = $this->maxPopularity - $this->minPopularity;
-                foreach ($terms as $term) {
-                    if (!$term->getPopularity()) {
-                        continue;
-                    }
-
-                    $term->setRatio(($term->getPopularity() - $this->minPopularity) / $range);
-                    $this->terms['query_text'] = $term->getData('query_text');
-                    $this->terms['url'] = $searchTerm -> getSearchUrl($term);
-                    $data['searchterms'][]= $this->terms;
-                }
-            }
-
-        }
-        
-        $recentSearch = [];
-        $recent_searches = $this->queryCollectionFactory->create()->setRecentQueryFilter(
-            $this->storeManager->getStore()->getId()
-        )->setPageSize(
-            6
-        )->load()->getItems();
-        if (count($recent_searches) > 0) {
-            foreach ($recent_searches as $recent_search) {
-                $recentSearch['query_text'] = $recent_search->getData('query_text');
-                $recentSearch['url'] = $searchTerm -> getSearchUrl($recent_search);
-                $data['recent_searches'][]= $recentSearch;
-            }
-        }
 
         $footer = $this->createObject('Magento\Theme\Block\Html\Footer');
         $copyright = $footer ->getCopyright();
@@ -307,9 +253,9 @@ class Common extends \Magento\Framework\View\Element\Template
 
         $currencyHelper = $this->createObject('Magento\Directory\Model\PriceCurrency');
         $currentStore = $this->getCurrentStore();
-        $current_currency = $currentStore->getCurrentCurrencyCode();
+        $current_currency = $currentStore->getCurrentCurrency();
         $available_currency = $currentStore->getAvailableCurrencyCodes();
-        $data['current_code'] = $current_currency;
+        $data['current_symbol'] = $currencyHelper->getCurrencySymbol(null, $current_currency);
         foreach ($available_currency as $item) {
             $currency = [
                 'name' => $currencyHelper->getCurrencySymbol(null, $item) . ' - ' . $item,

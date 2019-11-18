@@ -1,4 +1,4 @@
-import { Component, version } from 'inferno'
+import { h, Component, Fragment } from 'preact'
 import { Header } from '@components/header/header'
 import { Footer } from '@components/footer/footer'
 
@@ -15,11 +15,11 @@ export class App extends Component<any, any> {
     
     render () {
 		return (
-			<div>
+			<Fragment>
 				<Header />
-				<h1>{`Welcome to Inferno ${version}`}</h1>
+				<h1>{`Welcome to Preact Theme`}</h1>
 				<Footer />
-			</div>
+			</Fragment>
 		)
 	}
 }

@@ -1,18 +1,23 @@
-import { Component } from 'inferno'
+import { h, FunctionComponent } from 'preact'
 
-export class Logo extends Component<any, any> {
-    static displayName: string = `Logo`
-
-    constructor (props: any) {
-        super(props)
-    }
-
-    render () {
-        const { logo } = window.commonJson
-        return (
-            <a href={logo.url}>
-                <img src={logo.src} alt={logo.alt} />
-            </a>
-        )
-    }
+interface LogoProps {
+    url: string
+    src: string
+    width: number
+    height: number
+    alt?: string
 }
+
+const Logo: FunctionComponent<LogoProps> = (props: LogoProps) => {
+    const { url, src, alt } = props
+
+    return (
+        <a href={url}>
+            <img src={src} alt={alt} />
+        </a>
+    )
+}
+
+Logo.displayName = `Logo`
+
+export default Logo

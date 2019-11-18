@@ -1,4 +1,5 @@
-import { render } from 'preact'
+import 'preact/debug'
+import { h, render } from 'preact'
 import { Store } from 'redux'
 import { Provider } from 'preact-redux'
 import configureStore from './cms/store'
