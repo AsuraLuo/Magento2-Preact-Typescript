@@ -10,7 +10,6 @@ const themeConfig: ThemeConfig = {
         mode: 'development',
         styles: 'scss',
         scripts: 'tsx',
-        domain: 'http://dev.preact.cn/',
         files: [
             'css/app.css'
         ]

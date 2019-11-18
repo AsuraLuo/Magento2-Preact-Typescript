@@ -12,10 +12,12 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const FirendlyErrorePlugin = require('friendly-errors-webpack-plugin')
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 const LodashModulePlugin = require('lodash-webpack-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
-const { area, src, mode, domain } = themeConfig.default
+const { area, src, mode } = themeConfig.default
 const createEntry: any = ((list: string[]) => {
     const params: any = {}
     list.map((url: string) => {    
@@ -58,10 +60,7 @@ const baseConfig = new WebpackConfig({
             }
         }),
         new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify(mode),
-                PUBLIC_URL: `${domain}`
-            } 
+            'process.env.NODE_ENV': JSON.stringify(mode),
         }),
         new FirendlyErrorePlugin(),
         // new BundleAnalyzerPlugin({
@@ -99,7 +98,29 @@ const baseConfig = new WebpackConfig({
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new HardSourceWebpackPlugin()
+        new HardSourceWebpackPlugin(),
+        new SWPrecacheWebpackPlugin({
+            cacheId: 'preact-app',
+            filename: 'sw.js',
+            staticFileGlobs: [
+                path.join(__dirname, `../../app/design/${area}/${src}/web/**/*.{js,html,css}`)
+            ],
+            minify: true,
+            stripPrefix: path.join(__dirname, `../../app/design/${area}/${src}/web/`)
+        }),
+        new WebpackPwaManifest({
+            name: 'Preact Progressive Web App',
+            short_name: 'Preact App',
+            description: 'Magento2 Preact Progressive Web App!',
+            background_color: '#ffffff',
+            crossorigin: 'use-credentials',
+            icons: [
+                {
+                    src: path.resolve('./app/src/web/images/logo.svg'),
+                    sizes: [96, 128, 192, 256, 384, 512] 
+                }
+            ]
+        })
     ],
     optimization: {
         namedModules: false,
