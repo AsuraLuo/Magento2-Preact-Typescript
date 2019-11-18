@@ -1,0 +1,41 @@
+{
+  "icons": [
+    {
+      "src": "/Users/luolan/Websites/preact/app/design/frontend/Restful/preact/web/js/icon_512x512.c6e01d2c17374def56bcde67d9381f90.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/Users/luolan/Websites/preact/app/design/frontend/Restful/preact/web/js/icon_384x384.983f869dcb85959f26bb9c8a1cfa49b6.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/Users/luolan/Websites/preact/app/design/frontend/Restful/preact/web/js/icon_256x256.3d41573e52475e0043e2bb1eaca40ff9.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/Users/luolan/Websites/preact/app/design/frontend/Restful/preact/web/js/icon_192x192.d146da7f65c356a1a33feb745e95ad18.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Users/luolan/Websites/preact/app/design/frontend/Restful/preact/web/js/icon_128x128.79f12c743fbe1e3c1cd403e3b3b5e38a.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/Users/luolan/Websites/preact/app/design/frontend/Restful/preact/web/js/icon_96x96.3a77d1462053ad831abb379e4cac9102.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Preact Progressive Web App",
+  "short_name": "Preact App",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Magento2 Preact Progressive Web App!",
+  "background_color": "#ffffff"
+}

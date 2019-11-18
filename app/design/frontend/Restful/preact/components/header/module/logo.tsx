@@ -9,11 +9,11 @@ interface LogoProps {
 }
 
 const Logo: FunctionComponent<LogoProps> = (props: LogoProps) => {
-    const { url, src, alt } = props
+    const { url, src, width, height, alt } = props
 
     return (
         <a href={url}>
-            <img src={src} alt={alt} />
+            <img src={src} width={width} height={height} alt={alt} />
         </a>
     )
 }

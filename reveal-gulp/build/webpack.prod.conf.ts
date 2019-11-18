@@ -112,12 +112,14 @@ const baseConfig = new WebpackConfig({
             name: 'Preact Progressive Web App',
             short_name: 'Preact App',
             description: 'Magento2 Preact Progressive Web App!',
+            filename: 'manifest.json',
+            publicPath: path.join(__dirname, `../../app/design/${area}/${src}/web/js/`),
             background_color: '#ffffff',
             crossorigin: 'use-credentials',
             icons: [
                 {
-                    src: path.resolve('./app/src/web/images/logo.svg'),
-                    sizes: [96, 128, 192, 256, 384, 512] 
+                    src: path.resolve('./app/src/web/images/logo.png'),
+                    sizes: [96, 128, 192, 256, 384, 512]
                 }
             ]
         })

@@ -17,6 +17,7 @@
         <meta name="og:title" content="watch" />
         <meta name="og:description" content="watch" />
         <css src="css/main.css" />
+        <link rel="manifest" src="js/manifest.json" />
         <remove src="mage/calendar.css" />
         <remove src="requirejs/require.js" />
         <remove src="mage/polyfill.js" />
