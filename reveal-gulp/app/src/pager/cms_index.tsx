@@ -4,6 +4,7 @@ import { Store } from 'redux'
 import { Provider } from 'preact-redux'
 import configureStore from './cms/store'
 import { App } from './container/cms_index'
+import { register } from './tool/serviceWorker'
 
 const store: Store = configureStore()
 
@@ -13,3 +14,5 @@ render(
     </Provider>,
     document.getElementById('app') as HTMLElement    
 )
+
+register()

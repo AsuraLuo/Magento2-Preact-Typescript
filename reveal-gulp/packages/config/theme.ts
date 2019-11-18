@@ -8,6 +8,7 @@ export interface ThemeConfig {
         mode: 'production' | 'development' | 'none',
         styles: string,
         scripts: string,
+        domain?: string,
         files: Array<string>
     }
 }

@@ -15,7 +15,7 @@ const LodashModulePlugin = require('lodash-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
-const { area, src, mode } = themeConfig.default
+const { area, src, mode, domain } = themeConfig.default
 const createEntry: any = ((list: string[]) => {
     const params: any = {}
     list.map((url: string) => {    
@@ -58,7 +58,10 @@ const baseConfig = new WebpackConfig({
             }
         }),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV':  JSON.stringify(mode)
+            'process.env': {
+                NODE_ENV: JSON.stringify(mode),
+                PUBLIC_URL: `${domain}`
+            } 
         }),
         new FirendlyErrorePlugin(),
         // new BundleAnalyzerPlugin({
